@@ -9,7 +9,11 @@ Write a function named raisedToTheThird that takes in an array of numbers and re
 ------------------------------------------------------------------------------------------------ */
 
 const raisedToTheThird = (arr) => {
-  // Solution code here...
+  const newArr = [];
+  arr.forEach((item) => {
+    newArr.push(Math.pow(item, 3));
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -20,7 +24,8 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 ------------------------------------------------------------------------------------------------ */
 
 const appendTheEnd = (str) => {
-  // Solution code here...
+  const newString = `${str} The end.`;
+  return newString;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -37,7 +42,8 @@ console.log(a) prints [1, 2, 3, 1]
 ------------------------------------------------------------------------------------------------ */
 
 const appendFirstToLast = (arr) => {
-  // Solution code here...
+  let firstelement = arr[0];
+  arr[arr.length] = firstelement;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,7 +62,7 @@ console.log(a) prints { fullName: 'Octavia Estelle Butler', yearBorn: 1947 }
 ------------------------------------------------------------------------------------------------ */
 
 const addBirthYearProperty = (obj, year) => {
-  // Solution code here...
+  obj.yearBorn = year;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,7 +79,9 @@ console.log(people[1].isAuthor) prints true
 ------------------------------------------------------------------------------------------------ */
 
 const setStatusAsAuthor = (people) => {
-  // Solution code here...
+  people.forEach((item) => {
+    item.isAuthor = true;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -92,7 +100,9 @@ console.log(a) prints [1, 2, 3, 4]
 ------------------------------------------------------------------------------------------------ */
 
 const append = (arr1, arr2) => {
-  // Solution code here...
+  arr2.forEach((item) => {
+    arr1.push(item);
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -105,7 +115,6 @@ DO NOT CHANGE any of the below code.
 Run your tests from the console: jest challenges-02.test.js
 
 ------------------------------------------------------------------------------------------------ */
-
 describe("Testing challenge 1", () => {
   test("It should return a new array of numbers raised to the thrid power", () => {
     expect(raisedToTheThird([2, 4, 5, -7, 0])).toStrictEqual([
