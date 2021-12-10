@@ -222,6 +222,41 @@ Sort the meetings in the order that they start. If two meetings start at the sam
 
 You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
+const sortSchedule = (arr) => {
+  const sorted = {
+    "Monday": 1,
+    "Tuesday": 2,
+    "Wednesday": 3,
+    "Thursday": 4,
+    "Friday": 5,
+  }
+  arr = arr.sort((x, y) => {
+    let fx = sorted[x.dayOfWeek],
+      fy = sorted[y.dayOfWeek];
+    if (fx < fy) {
+      return 1;
+    }
+    if (fx > fy) {
+      return -1;
+    }
+    if (fx == fy) {
+      if (x.start == y.start) {
+        if(x.end-x.start < y.end-y.start){
+          return 1;
+        }
+      }
+    }
+    return 0;
+  }).reverse()
+  return arr;
+};
+
+/* ------------------------------------------------------------------------------------------------
+TESTS
+All the code below will verify that your functions are working to solve the challenges.
+DO NOT CHANGE any of the below code.
+Run your tests from the console: jest challenges-03.test.js
+------------------------------------------------------------------------------------------------ */
 
 describe("Testing challenge 1", () => {
   test("It should return an array of uppercase animal names", () => {
