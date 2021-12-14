@@ -82,7 +82,6 @@ Write a function name wordsToCharList that, given a string as input, returns a n
 For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
-
 const wordsToCharList = (arr) => {
   return arr.split("");
 };
@@ -130,8 +129,8 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = JSON.parse(JSON.stringify(recipe)).ingredients;
   for (let i = 0; i < result.length; i++) {
-    let index = result[i].indexOf(' ',3);
-    result[i] = result[i].slice(index+1);
+    let index = result[i].indexOf(" ", 3);
+    result[i] = result[i].slice(index + 1);
   }
   return result;
 };
@@ -147,7 +146,7 @@ You may also use other string or array methods.
 const splitFoods = (recipe) => {
   let result = JSON.parse(JSON.stringify(recipe)).ingredients;
   for (let i = 0; i < result.length; i++) {
-    result[i] = result[i].split(' ').splice(2).join(' ');
+    result[i] = result[i].split(" ").splice(2).join(" ");
   }
   return result;
 };
@@ -185,17 +184,15 @@ For example:
   console.log(integers) will print [1, 3, 5]
 ------------------------------------------------------------------------------------------------ */
 
-
 const removeEvenValues = (arr) => {
- 
-  for(let x=0;x<arr.length;x++){
-     if(arr[x]%2===0){
-       arr.splice(x,1);
-       --x;
-     }
-   }
-   return arr;
- };
+  for (let x = 0; x < arr.length; x++) {
+    if (arr[x] % 2 === 0) {
+      arr.splice(x, 1);
+      --x;
+    }
+  }
+  return arr;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
@@ -260,7 +257,11 @@ const extractVowels = (str) => {
   let result = [];
 
   result[0] = str.replace(/[aeiou]/gi, "");
-  result[1] = str.replace(/[^aeiou]/gi, "").split('').sort().join('');
+  result[1] = str
+    .replace(/[^aeiou]/gi, "")
+    .split("")
+    .sort()
+    .join("");
 
   return result;
 };
