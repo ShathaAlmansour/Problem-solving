@@ -128,8 +128,10 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = JSON.parse(JSON.stringify(recipe)).ingredients;
+
   for (let i = 0; i < result.length; i++) {
     let index = result[i].indexOf(" ", 3);
+
     result[i] = result[i].slice(index + 1);
   }
   return result;
