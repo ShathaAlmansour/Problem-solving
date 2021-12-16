@@ -101,7 +101,11 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
-
+  return arr.map((item) => {
+    if (item % 2 === 0) return "even";
+    else if (item % 2 === 1) return "odd";
+    else return "N/A";
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -142,12 +146,13 @@ const snorlaxAbilities = {
       },
     },
   ],
+
   name: "snorlax",
   weight: 4600,
 };
 
 const extractAbilities = (arr) => {
-  // Solution code here...
+  return arr.map((item) => item.ability.name);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -189,12 +194,13 @@ const snorlaxStats = {
       baseStat: 65,
     },
   ],
+  
   name: "snorlax",
   weight: 4600,
 };
 
 const extractStats = (arr) => {
-  // Solution code here...
+  return arr.map((value) =>( {name: value.stat.name, total: value.effort+ value.baseStat}));
 };
 
 /* ------------------------------------------------------------------------------------------------
