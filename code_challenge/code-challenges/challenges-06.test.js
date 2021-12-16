@@ -135,7 +135,10 @@ Write a function named getHouses that returns a new array containing the names o
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+
+  arr.forEach((value) => houses.push(value.house));
+
+  return houses;
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -151,7 +154,12 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+  let Chil = false;
+  arr.forEach((element) => {
+    if (Object.values(element).some((element) => element == character))
+      Chil = true;
+  });
+  return Chil;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -163,7 +171,16 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  let Chil = false;
+
+  Object.entries(arr).forEach(([key, element]) => {
+    if (element.name == character) {
+      if (element.children.length) {
+        Chil = true;
+      }
+    }
+  });
+  return Chil;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -173,7 +190,15 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  let sum = 0;
+
+  arr.forEach((element) => {
+    if (element.name) sum += 1;
+
+    if (element.spouse) sum += 1;
+    sum += element.children.length;
+  });
+  return sum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -188,7 +213,17 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
-  // Solution code here...
+  arr.forEach((element) => {
+    let sum = 0;
+    if (element.name) sum += 1;
+
+    if (element.spouse) sum += 1;
+
+    sum += element.children.length;
+    sizes.push({ house: element.house, members: sum });
+  });
+
+  return sizes;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -211,7 +246,20 @@ const deceasedSpouses = ["Catelyn", "Lysa", "Robert", "Khal Drogo", "Alerie"];
 
 const houseSurvivors = (arr) => {
   const survivors = [];
-  // Solution code here...
+
+  arr.forEach((element) => {
+    let sum = 0;
+
+    if (element.name) sum += 1;
+
+    if (element.spouse && !deceasedSpouses.includes(element.spouse)) sum += 1;
+
+    sum += element.children.length;
+
+    survivors.push({ house: element.house, members: sum });
+  });
+
+  return survivors;
 };
 
 /* ------------------------------------------------------------------------------------------------
