@@ -7,8 +7,8 @@ Write a function called addTwo that takes in an array and adds two to every valu
 ------------------------------------------------------------------------------------------------ */
 
 const addTwo = (arr) => {
-    return arr.map(value => value+=2)
-  };
+  return arr.map((value) => (value += 2));
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -18,8 +18,8 @@ Write a function named containsW that takes in a string. This function should us
 ------------------------------------------------------------------------------------------------ */
 
 const containsW = (str) => {
-  if(str.match(/w/)) return true
-  return false
+  if (str.match(/w/)) return true;
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,8 +35,9 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  if(input.toString().match(/\d/)) return true
-  return false
+  if (input.toString().match(/\d/)) return true;
+
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -47,10 +48,9 @@ Write a function named containsWorld that takes in a string or number of any len
 ------------------------------------------------------------------------------------------------ */
 
 const containsWorld = (input) => {
-  if(input.match(/world/)) return true
-  return false
+  if (input.match(/world/)) return true;
+  return false;
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -61,7 +61,7 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  return str.match(/\b[A-Z].*?\b/g)||[]
+  return str.match(/\b[A-Z].*?\b/g) || [];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -71,13 +71,12 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  let output = []
-  arr.forEach(item=>{
-    let check = item.match(/^[A-Ja-j].*/g)
-    if(check)
-      output.push(...check)
-  })
-  return output
+  let output = [];
+  arr.forEach((item) => {
+    let check = item.match(/^[A-Ja-j].*/g);
+    if (check) output.push(...check);
+  });
+  return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -93,11 +92,11 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  if(input.toString().match(/^Oct$|^oct$|^October$|^october$/g)){
-    return true
+  if (input.toString().match(/^Oct$|^oct$|^October$|^october$/g)) {
+    return true;
   }
-  return false
-}
+  return false;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -110,9 +109,8 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = (str) => {
-  return str.match(/[A-Za-z0-9]+\s/g)
+  return str.match(/[A-Za-z0-9]+\s/g);
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -127,7 +125,7 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
-  return str.replace(/a|A|e|E|i|I|o|O|u|U/g,'_')
+  return str.replace(/a|A|e|E|i|I|o|O|u|U/g, "_");
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -144,7 +142,7 @@ const seashells =
   "She sells seashells by the seashore. The shells she sells are surely seashells. So if she sells shells on the seashore, I'm sure she sells seashore shells.";
 
 const findShells = (str) => {
-  return str.match(/\w*ells\b/g)
+  return str.match(/\w*ells\b/g);
 };
 
 /* ------------------------------------------------------------------------------------------------
