@@ -194,13 +194,16 @@ const snorlaxStats = {
       baseStat: 65,
     },
   ],
-  
+
   name: "snorlax",
   weight: 4600,
 };
 
 const extractStats = (arr) => {
-  return arr.map((value) =>( {name: value.stat.name, total: value.effort+ value.baseStat}));
+  return arr.map((value) => ({
+    name: value.stat.name,
+    total: value.effort + value.baseStat,
+  }));
 };
 
 /* ------------------------------------------------------------------------------------------------
