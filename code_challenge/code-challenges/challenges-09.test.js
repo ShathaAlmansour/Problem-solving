@@ -66,15 +66,11 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
+  const val = arr.reduce((item) => {
+    return (item += 1);
+  }, 0);
 
-  const val=arr.reduce((item)=>{
-
-    return item+=1;
-
-},0);
-
-return val;
-
+  return val;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -227,14 +223,15 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  let result=0;
-  const plus=arr.reduce((item,val)=>{
-    result+=1;
-    item+=val;
+  let result = 0;
+  const plus = arr.reduce((item, val) => {
+    result += 1;
+    item += val;
+
     return item;
-},0);
-const final =plus/result;
-return final;
+  }, 0);
+  const final = plus / result;
+  return final;
 };
 
 /* ------------------------------------------------------------------------------------------------
