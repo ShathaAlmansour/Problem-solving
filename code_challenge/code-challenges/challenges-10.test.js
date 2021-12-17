@@ -23,7 +23,7 @@ Returns: ['dyoll', 'eimaj'];
 ------------------------------------------------------------------------------------------------ */
 
 const getNames = (arr) => {
-  // Solution code here...
+  return arr.map((value) => value.name.split("").reverse().join(""));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -37,7 +37,13 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  // Solution code here...
+  let result = 0;
+
+  input.map((item) =>
+    item.filter((val) => (val == target ? (result += 1) : null))
+  );
+
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -51,7 +57,11 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  // Solution code here...
+  let result = 0;
+
+  input.map((value) => value.map((value) => (result += value)));
+
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,7 +77,21 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  const res = [];
+
+  input.map((ele) => {
+    const val = [];
+
+    ele.filter((item) => {
+      if (item % 5 == 0 && typeof item == "number") {
+        val.push(Math.pow(2, item));
+      }
+    });
+
+    res.push(val);
+  });
+
+  return res;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,7 +159,14 @@ let starWarsData = [
 ];
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+  let result = "";
+
+  data.map((value) => {
+    if (value.gender == "male" || value.gender == "female")
+      result += value.name + " and ";
+  });
+
+  return result.slice(0, -5);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -144,8 +175,12 @@ CHALLENGE 6
 Write a function named findShortest that, given the Star Wars data from Challenge 6, uses any combination of filter, map and reduce to return the name of the shortest character.
 ------------------------------------------------------------------------------------------------ */
 
-let findShortest = (data) => {
-  // Solution code here...
+const findShortest = (data) => {
+  const result = data.reduce((item, value) => {
+    return Number(item.height) < Number(value.height) ? item : value;
+  });
+
+  return result.name;
 };
 
 /* ------------------------------------------------------------------------------------------------
