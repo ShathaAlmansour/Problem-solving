@@ -8,8 +8,13 @@ using the 'reduce' method.
 
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
+
 const maxInArray = (arr) => {
-  // Solution code here...
+  return arr.reduce((result, value) => {
+    if (value > result) result = value;
+
+    return result;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -26,8 +31,16 @@ For example:
 
 return: 23
 ------------------------------------------------------------------------------------------------ */
+
 const findMax = (matrix) => {
-  // Solution code here...
+  return matrix.reduce((item, val) => {
+    let num = val.reduce((item, value) => {
+      if (value > item) item = value;
+      return item;
+    }, 0);
+    if (num > item) item = num;
+    return item;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,8 +57,15 @@ For example:
 
 return: 35
 ------------------------------------------------------------------------------------------------ */
+
 const totalSum = (matrix) => {
-  // Solution code here...
+  let result = 0;
+
+  matrix.map((value) => {
+    let x = value.map((num) => (result += num));
+  });
+
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -84,7 +104,14 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
+  let value = [];
+  stores.forEach((store) => {
+    store.forEach((x, y) => {
+      if (value[y]) value[y] += x;
+      else value.push(x);
+    });
+  });
+  return value;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -98,7 +125,11 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let x = [];
+  data.forEach((cookies, i) => {
+    x.push({ sales: `${cookies} cookies`, time: hours[i] });
+  });
+  return x;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,7 +166,17 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  return arr.reduce((val, store) => {
+    const storeQuantity = store.items.reduce((val, item) => {
+      if (item.name == "Treats") val += item.quantity;
+
+      return val;
+    }, 0);
+
+    val += storeQuantity;
+
+    return val;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -157,7 +198,12 @@ The top row of the board is considered row zero and row numbers increase as they
 ------------------------------------------------------------------------------------------------ */
 
 const battleship = (board, row, col) => {
-  //  Solution code here...
+  let hitOrMiss;
+  for (let x = 0; x < board.length; x++) {
+    if (board[row][col] == "#") hitOrMiss = "hit";
+    else hitOrMiss = "miss";
+  }
+  return hitOrMiss;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -168,8 +214,12 @@ Write a function named calculateProduct that takes in a two-dimensional array of
 For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
-const calculateProduct = (numbers) => {
-  // Solution code here...
+const calculateProduct = (values) => {
+  return values.reduce((sum, i) => {
+    i.forEach((e) => (sum *= e));
+
+    return sum;
+  }, 1);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -189,7 +239,20 @@ const weeklyTemperatures = [
 ];
 
 const averageDailyTemperature = (weather) => {
-  // Solution code here...
+  let count = 0;
+  let total = 0;
+
+  for (let x = 0; x < weather.length; x++) {
+    for (let y = 0; y < weather[x].length; y++) {
+      total += weather[x][y];
+
+      count++;
+    }
+  }
+
+  let avrage = total / count;
+
+  return avrage;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -210,7 +273,21 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+  let array = [];
+
+  for (let i = 0; i < weather.length; i++) {
+    let c = 0;
+    let total = 0;
+
+    for (let y = 0; y < weather[i].length; y++) {
+      total += weather[i][y];
+      c++;
+    }
+    let x = total / c;
+    array.push(x);
+  }
+  let val = Math.min(...array);
+  return val;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -224,9 +301,24 @@ The function should parse the string as rows and columns and compute the sum of 
 
 For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
-
 const excel = (str) => {
-  // Solution code here...
+  const result = str
+
+    .split("\n")
+
+    .map((string) => string.split(",").map((value) => Number(value)));
+
+  return result.reduce((item, arr) => {
+    const total = arr.reduce((item, value) => {
+      item += value;
+
+      return item;
+    }, 0);
+
+    item.push(total);
+
+    return item;
+  }, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
