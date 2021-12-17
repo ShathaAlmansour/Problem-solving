@@ -193,6 +193,7 @@ const removeEvenValues = (arr) => {
       --x;
     }
   }
+
   return arr;
 };
 
