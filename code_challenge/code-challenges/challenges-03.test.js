@@ -224,30 +224,33 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 const sortSchedule = (arr) => {
   const sorted = {
-    "Monday": 1,
-    "Tuesday": 2,
-    "Wednesday": 3,
-    "Thursday": 4,
-    "Friday": 5,
-  }
-  arr = arr.sort((x, y) => {
-    let fx = sorted[x.dayOfWeek],
-      fy = sorted[y.dayOfWeek];
-    if (fx < fy) {
-      return 1;
-    }
-    if (fx > fy) {
-      return -1;
-    }
-    if (fx == fy) {
-      if (x.start == y.start) {
-        if(x.end-x.start < y.end-y.start){
-          return 1;
+    Monday: 1,
+    Tuesday: 2,
+    Wednesday: 3,
+    Thursday: 4,
+    Friday: 5,
+  };
+  arr = arr
+    .sort((x, y) => {
+      let fx = sorted[x.dayOfWeek],
+        fy = sorted[y.dayOfWeek];
+      if (fx < fy) {
+        return 1;
+      }
+      if (fx > fy) {
+        return -1;
+      }
+      if (fx == fy) {
+        if (x.start == y.start) {
+          if (x.end - x.start < y.end - y.start) {
+            return 1;
+          }
         }
       }
-    }
-    return 0;
-  }).reverse()
+      return 0;
+    })
+    .reverse();
+
   return arr;
 };
 
