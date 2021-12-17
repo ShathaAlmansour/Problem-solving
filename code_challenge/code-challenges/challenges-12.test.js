@@ -165,6 +165,7 @@ const errands = [
   },
 ];
 
+
 const howManyTreats = (arr) => {
   return arr.reduce((val, store) => {
     const storeQuantity = store.items.reduce((val, item) => {
