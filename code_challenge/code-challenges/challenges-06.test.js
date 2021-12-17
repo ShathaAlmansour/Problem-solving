@@ -198,6 +198,7 @@ const totalCharacters = (arr) => {
     if (element.spouse) sum += 1;
     sum += element.children.length;
   });
+
   return sum;
 };
 
