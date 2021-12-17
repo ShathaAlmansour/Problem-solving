@@ -42,7 +42,6 @@ const count = (target, input) => {
   input.map((item) =>
     item.filter((val) => (val == target ? (result += 1) : null))
   );
-
   return result;
 };
 
